@@ -1,0 +1,145 @@
+﻿@font-face {
+    font-family: "consolas";
+    src: url("/resource/fonts/consolas.ttf");
+}
+
+@font-face {
+    font-family: "northstar";
+    src: url("/resource/fonts/NorthstarRegular.otf");
+}
+
+@font-face {
+    font-family: "northstar";
+    src: url("/resource/fonts/NorthstarItalic.otf");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "entypo";
+    src: url("/resource/fonts/Entypo.otf");
+}
+
+@font-face {
+    font-family: "stars";
+    src: url("/resource/fonts/stars.ttf");
+}
+
+@font-face {
+    font-family: "comiccat";
+    src: url("/resource/fonts/comiccat.otf");
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+
+    font-size: 14px;
+    font-family: "consolas";
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+header {
+    width: 100%;
+    padding: 6px 60px;
+}
+
+.header-text-wraper {
+    width: fit-content;
+    height: 38px;
+
+    text-decoration: none;
+}
+
+.header-text-wraper > h1,
+.header-text-wraper > h2 {
+    display: inline;
+
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+
+    user-select: none;
+}
+
+.header-text-wraper > h1 {
+    font-family: "northstar";
+    font-size: 38px;
+}
+
+.header-text-wraper > h2 {
+    font-family: "consolas";
+    font-size: 30px;
+}
+
+.header-text-wraper > h1 + .blink-line,
+.header-text-wraper > h2 + .blink-line {
+    text-transform: uppercase;
+    font-style: italic;
+    
+    opacity: 0.8;
+
+    animation: blink 0.57s steps(1) infinite;
+
+    user-select: none;
+}
+
+.header-text-wraper > h1 + .blink-line {
+    margin-left: -6px;
+
+    font-size: 38px;
+}
+
+.header-text-wraper > h2 + .blink-line {
+    margin-left: -14px;
+
+    font-size: 28px;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+}
+
+footer > span {
+    color : #898989;
+}
+
+@keyframes blink{
+    from {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* MAIN */
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+}
+
+section {
+    padding: 25px 0;
+    margin: auto;
+}

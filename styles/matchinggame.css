@@ -1,0 +1,226 @@
+﻿:root {
+    --header-bg-color: rgba(255, 255, 255, 0.8);
+    --header-text-color: #551a8b;
+    --header-shadow: #d7d7d7;
+    --footer-text-color: #551a8b;
+    --stat-bar-font-size: 16px;
+}
+
+body {
+    background: url(/resource/images/background.jpg) center / 40% repeat;
+}
+
+/* HEADER */
+
+header {
+    background-color: var(--header-bg-color); 
+    box-shadow: 0 0 3px var(--header-shadow);
+}
+
+.header-text-wraper > h1,
+.header-text-wraper > h1 + .blink-line {
+    color: var(--header-text-color);
+}
+
+.header-text-wraper > h2,
+.header-text-wraper > h2 + .blink-line {
+    color: var(--header-text-color);
+}
+
+/* FOOTER */
+
+footer {
+    background-color: var(--header-bg-color);
+    box-shadow: 0 0 3px var(--header-shadow);
+}
+
+footer > span {
+    color: var(--footer-text-color);
+}
+
+/* MAIN */
+
+.game-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 340px;
+    height: 25px;
+    margin: 10px auto;
+}
+
+.game-stat > .stars {
+    font-family: "stars";
+    font-size: var(--stat-bar-font-size);
+}
+
+.game-stat > .time {
+    font-family: "comiccat";
+    font-size: var(--stat-bar-font-size);
+}
+
+.game-stat > .moves {
+    font-family: "comiccat";
+    font-size: var(--stat-bar-font-size);
+}
+
+.game-stat > .restart {
+    width: 25px;
+    height: 100%;
+
+    font-family: "entypo";
+    font-size: 32px;
+    line-height: 25px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.game-wraper {
+    position: relative;
+
+    width: 600px;
+    height: 640px;
+    margin: 0 auto;
+
+    border-radius: 15px;
+}
+
+.game-wraper > .game-field {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    padding: 40px 30px;
+
+    background: linear-gradient(135deg, #09c3b2, #684c84);
+    box-shadow: 0 0 6px #236376;
+    border-radius: inherit;
+}
+
+.game-wraper > .game-field > .card {
+    position: relative;
+
+    width: 120px;
+    height: 120px;
+
+    box-shadow: 0 0 6px #30395a;
+    border-radius: 10px;
+
+    transition: all 0.2s linear;
+
+    transform-style: preserve-3d;
+}
+
+.game-wraper > .game-field > .card > .face {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #2a3541;
+    border-radius: inherit;
+    transform: translateZ(1px);
+
+    cursor: pointer;
+}
+
+.game-wraper > .game-field > .card > .back {
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    background-color: #04a9e1;
+    border-radius: inherit;
+    transform: rotateY(180deg) translateZ(1px);
+
+    transition: 0.2s;
+}
+
+.game-wraper > .game-field > .card > .back > img {
+    width: 40px;
+    height: 40px;
+
+    filter: invert(1);
+
+    user-select: none;
+}
+
+.game-wraper > .game-win {
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    font-size: 90px;
+    font-family: "comiccat";
+
+    color: black;
+    background-color:rgba(255, 255, 255, 0.8);
+    border-radius: inherit;
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+/* анимации для js */
+
+.rotateZ {
+    transform: rotate3d(0, 1, 0, 180deg);
+
+    pointer-events: none;
+}
+
+/* его убрать после */
+.increase-card {
+    animation: increase 0.3s;
+    animation-timing-function: linear;
+    animation-delay: 0.2s;
+}
+
+/* для .back */
+.complete-card {
+    background-color: #00dbbe !important;
+}
+
+.win-blur {
+    filter: blur(2px);
+}
+
+.win-window {
+    opacity: 1 !important;
+
+    transition: 2s;
+
+    pointer-events: all !important;
+}
+
+@keyframes increase{
+    from {
+        width: 120px;
+        height: 120px;
+    }
+
+    50% {
+        width: 140px;
+        height: 140px;
+    }
+
+    to {
+        width: 120px;
+        height: 120px;
+    }
+}
